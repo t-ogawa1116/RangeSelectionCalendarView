@@ -9,9 +9,9 @@
 import UIKit
 
 enum ColorPosition {
-    case Center
-    case Right
-    case Left
+    case center
+    case right
+    case left
 }
 
 /// 日付表示Cell
@@ -33,18 +33,18 @@ class DateCollectionViewCell: UICollectionViewCell {
         initLayout()
     }
     
-    private func initLayout(){
+    private func initLayout() {
         self.rightHalfView.isHidden = true
         self.leftHalfView.isHidden = true
     }
     
     public func updateCircleView(halfColor : UIColor, position : ColorPosition) {
-        if position == .Right {
+        if position == .right {
             self.contentView.backgroundColor = UIColor.clear
             rightHalfView.isHidden = false
             rightHalfView.backgroundColor = halfColor
             leftHalfView.isHidden = true
-        }else if position == .Left {
+        }else if position == .left {
             self.contentView.backgroundColor = UIColor.clear
             leftHalfView.isHidden = false
             leftHalfView.backgroundColor = halfColor

@@ -32,8 +32,8 @@
 		597FA5351FD0EDED000690FD /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FA4F11FD0E755000690FD /* DateManager.swift */; };
 		597FA53B1FD0EE73000690FD /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597FA4E31FD0E70D000690FD /* CalendarView.xib */; };
 		597FA53C1FD0EE73000690FD /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597FA4E81FD0E729000690FD /* DateCollectionViewCell.xib */; };
-		597FA53D1FD0EEA8000690FD /* RangeSelectionCalendarView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; };
-		597FA53E1FD0EEA8000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		597FA5431FD14375000690FD /* RangeSelectionCalendarView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; };
+		597FA5441FD14375000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 			remoteGlobalIDString = 597FA4F51FD0E79C000690FD;
 			remoteInfo = Demo;
 		};
-		597FA53F1FD0EEA8000690FD /* PBXContainerItemProxy */ = {
+		597FA5451FD14375000690FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 597FA4A41FD0E4F8000690FD /* Project object */;
 			proxyType = 1;
@@ -68,13 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		597FA5411FD0EEA8000690FD /* Embed Frameworks */ = {
+		597FA5471FD14375000690FD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				597FA53E1FD0EEA8000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */,
+				597FA5441FD14375000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				597FA53D1FD0EEA8000690FD /* RangeSelectionCalendarView.framework in Frameworks */,
+				597FA5431FD14375000690FD /* RangeSelectionCalendarView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +369,7 @@
 				597FA4A91FD0E4F9000690FD /* Frameworks */,
 				597FA4AA1FD0E4F9000690FD /* Headers */,
 				597FA4AB1FD0E4F9000690FD /* Resources */,
+				597FA5421FD0F75D000690FD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -404,12 +405,12 @@
 				597FA4F21FD0E79C000690FD /* Sources */,
 				597FA4F31FD0E79C000690FD /* Frameworks */,
 				597FA4F41FD0E79C000690FD /* Resources */,
-				597FA5411FD0EEA8000690FD /* Embed Frameworks */,
+				597FA5471FD14375000690FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				597FA5401FD0EEA8000690FD /* PBXTargetDependency */,
+				597FA5461FD14375000690FD /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -473,7 +474,7 @@
 					};
 					597FA4F51FD0E79C000690FD = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					597FA5081FD0E79D000690FD = {
 						CreatedOnToolsVersion = 9.1;
@@ -552,6 +553,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		597FA5421FD0F75D000690FD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		597FA4A81FD0E4F9000690FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -624,10 +641,10 @@
 			target = 597FA4F51FD0E79C000690FD /* Demo */;
 			targetProxy = 597FA5151FD0E79D000690FD /* PBXContainerItemProxy */;
 		};
-		597FA5401FD0EEA8000690FD /* PBXTargetDependency */ = {
+		597FA5461FD14375000690FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 597FA4AC1FD0E4F9000690FD /* RangeSelectionCalendarView */;
-			targetProxy = 597FA53F1FD0EEA8000690FD /* PBXContainerItemProxy */;
+			targetProxy = 597FA5451FD14375000690FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -771,6 +788,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -793,6 +811,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -840,11 +859,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.togawa.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -855,11 +876,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.togawa.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

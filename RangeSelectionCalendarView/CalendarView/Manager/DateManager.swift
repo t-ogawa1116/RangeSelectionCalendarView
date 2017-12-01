@@ -26,7 +26,7 @@ class DateManager: NSObject {
         numberOfItems = dateRange!.count * date.daysPerWeek
         
         let count = numberOfCells.filter(){$0.key == date.month}.count
-        if count == 0 {
+        if count.isEmpty() {
             numberOfCells[date.month] = numberOfItems
         }
         
@@ -68,7 +68,7 @@ class DateManager: NSObject {
         
         // 配列をメンバーに保持させる。
         let count = currentMonth.filter(){$0.key == date.month}.count
-        if count == 0 {
+        if count.isEmpty() {
             currentMonth[date.month] = currentMonthOfDates
         }
     }

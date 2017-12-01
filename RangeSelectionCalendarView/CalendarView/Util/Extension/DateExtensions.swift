@@ -232,13 +232,27 @@ extension Date {
     }
     /// Returns the a custom time interval description from another date
     func offset(from date: Date) -> String {
-        if years(from: date)   > 0 { return "\(years(from: date))年前"   }
-        if months(from: date)  > 0 { return "\(months(from: date))月前"  }
-        if weeks(from: date)   > 0 { return "\(weeks(from: date))週前"   }
-        if days(from: date)    > 0 { return "\(days(from: date))日前"    }
-        if hours(from: date)   > 0 { return "\(hours(from: date))時間前"   }
-        if minutes(from: date) > 0 { return "\(minutes(from: date))分前" }
-        if seconds(from: date) > 0 { return "\(seconds(from: date))秒前" }
+        if years(from: date) > 0 {
+            return "\(years(from: date))年前"
+        }
+        if months(from: date) > 0 {
+            return "\(months(from: date))月前"
+        }
+        if weeks(from: date) > 0 {
+            return "\(weeks(from: date))週前"
+        }
+        if days(from: date) > 0 {
+            return "\(days(from: date))日前"
+        }
+        if hours(from: date) > 0 {
+            return "\(hours(from: date))時間前"
+        }
+        if minutes(from: date) > 0 {
+            return "\(minutes(from: date))分前"
+        }
+        if seconds(from: date) > 0 {
+            return "\(seconds(from: date))秒前"
+        }
         return ""
     }
 }
@@ -252,4 +266,3 @@ extension UIColor {
         return (coreImageColor.red, coreImageColor.green, coreImageColor.blue, coreImageColor.alpha)
     }
 }
-

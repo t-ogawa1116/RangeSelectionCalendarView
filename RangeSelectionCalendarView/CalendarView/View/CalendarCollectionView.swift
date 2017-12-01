@@ -12,28 +12,28 @@ class CalendarCollectionView: UICollectionView {
     
     // *** Public Propaty *** //
     // カレンダーモデルの配列
-    var calenderModels = Array<[CalendarModel]>()
+    public var calenderModels = Array<[CalendarModel]>()
     // どの日に的を絞って表示させるか
-    var displayWeekType = Const.CalendarConst.DisplayWeekType.All
+    public var displayWeekType = Const.CalendarConst.DisplayWeekType.All
     // Delegate
-    var calendarDelegate : CalendarDelegate?
+    public var calendarDelegate : CalendarDelegate?
     // 祝日の配列
-    var customHoliday = [Date]()
+    public var customHoliday = [Date]()
     // 最大選択期間(日)
-    var maximumSelectionPeriod : Int = 31
+    public var maximumSelectionPeriod : Int = 31
     // 単一選択か複数選択か選択しないか
-    var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.DoubleMode
+    public var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.DoubleMode
     // 各種色設定
-    var holidayColor : UIColor = Const.CalendarConst.HolidayColor
-    var weekdayColor : UIColor = Const.CalendarConst.WeekdayColor
-    var saturedayColor : UIColor = Const.CalendarConst.SaturDayColor
+    public var holidayColor : UIColor = Const.CalendarConst.HolidayColor
+    public var weekdayColor : UIColor = Const.CalendarConst.WeekdayColor
+    public var saturedayColor : UIColor = Const.CalendarConst.SaturDayColor
     
     // 選択した際の色
-    var circleColor : UIColor = UIColor.blue.withAlphaComponent(1.0)
+    public var circleColor : UIColor = UIColor.blue.withAlphaComponent(1.0)
     // 選択した際のImage
-    var circleImage : UIImage? = nil
+    public var circleImage : UIImage? = nil
     // 選択間の色
-    var whileSelectedColor : UIColor = UIColor.blue.withAlphaComponent(0.2)
+    public var whileSelectedColor : UIColor = UIColor.blue.withAlphaComponent(0.2)
     
     
     // *** Private Propaty *** //
@@ -55,25 +55,21 @@ class CalendarCollectionView: UICollectionView {
         
         initRegister()
     }
-    
-    
+
     // *** Private *** //
 
     /// 初期化
-    func initRegister(){
+    func initRegister() {
         self.delegate = self
         self.dataSource = self
-    
-        
+
         let nib = UINib(nibName: "DateCollectionViewCell", bundle: Bundle(for: type(of: self)))
-        
         
         self.register(nib, forCellWithReuseIdentifier: "Cell")
         self.register(CollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Section")
         
         self.adaptBeautifulGrid(numberOfGridsPerRow: 7, gridLineSpace: 0)
     }
-    
     
     /// セルのラベルの文字色を取得
     ///
@@ -85,40 +81,34 @@ class CalendarCollectionView: UICollectionView {
             if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyHoliday {
                 // 表示タイプが「全て」もしくは「祝日のみ」の場合
                 return holidayColor
-            }
-            else {
+            } else {
                 // 表示タイプが「平日のみ」の場合
                 return holidayColor.withAlphaComponent(0.5)
             }
-        }
-        else if row % 7 == 6 {
+        } else if row % 7 == 6 {
             // 土曜日
             if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyHoliday {
                 // 表示タイプが「全て」もしくは「祝日のみ」の場合
                 return saturedayColor
-            }
-            else {
+            } else {
                 // 表示タイプが「平日のみ」の場合
                 return saturedayColor.withAlphaComponent(0.5)
             }
-        }
-        else {
+        } else {
             if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays {
                 return weekdayColor
-            }
-            else {
+            } else {
                 return weekdayColor.withAlphaComponent(0.5)
             }
         }
     }
 }
 
-
 // MARK: - UICollectionViewDataSource
 extension CalendarCollectionView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch(section % 2){
+        switch(section % 2) {
         case 0:
             // 曜日用
             return Date().daysPerWeek
@@ -145,8 +135,12 @@ extension CalendarCollectionView : UICollectionViewDataSource {
             circleImageView.tag = indexPath.row
             circleImageView.image = circleImage
             cell.circleView?.addSubview(circleImageView)
-        }else {
-            cell.circleView?.subviews.forEach(){if $0 is UIImageView { $0.removeFromSuperview()}}
+        } else {
+            cell.circleView?.subviews.forEach {
+                if $0 is UIImageView {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         
         // Section毎にCellのプロパティを変える.
@@ -167,40 +161,42 @@ extension CalendarCollectionView : UICollectionViewDataSource {
             cell.dayLabel?.textColor = cellTextLabelColor(row: indexPath.row)
             
             // カスタムの祝日設定
-            let count = customHoliday.filter(){$0.month == calendarModel.month && $0.day == calendarModel.day}.count
-            if count > 0 {
+            let count = customHoliday.filter {
+                $0.month == calendarModel.month && $0.day == calendarModel.day
+            }.count
+            if count.isEmpty() {
                 cell.dayLabel?.textColor = holidayColor
                 calendarModel.weekType = WeekType.Holiday
-                if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays &&  (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1){
+                if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1) {
                     cell.dayLabel?.textColor = cell.dayLabel?.textColor.withAlphaComponent(0.5)
                 }
             }
 
             // 表示している月じゃなかった場合
-            if calendarModel.month != calendarModel.keyDate.month && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1){
+            if calendarModel.month != calendarModel.keyDate.month && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1) {
                 cell.dayLabel?.textColor = cell.dayLabel?.textColor.withAlphaComponent(0.5)
             }
             
             // 今日より前の場合
-            if calendarModel.date <= Date()  && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1){
+            if calendarModel.date <= Date()  && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1) {
                 cell.dayLabel?.textColor = cell.dayLabel?.textColor.withAlphaComponent(0.5)
                 calendarModel.isPastDays = true
-            }else {
+            } else {
                 calendarModel.isPastDays = false
             }
             
             // 選択されていたら
             if (startCalendarModel?.date == calendarModel.date || finishCalendarModel?.date == calendarModel.date) &&
-                calendarModel.date.month == calendarModel.keyDate.month{
+                calendarModel.date.month == calendarModel.keyDate.month {
                 
                 cell.circleView?.isHidden = false
                 cell.dayLabel.textColor = UIColor.white
-            }else {
+            } else {
                 cell.circleView?.isHidden = true
             }
             
             // 選択範囲に入っていたら
-            if startCalendarModel != nil && finishCalendarModel != nil && calendarModel.date.month == calendarModel.keyDate.month{
+            if startCalendarModel != nil && finishCalendarModel != nil && calendarModel.date.month == calendarModel.keyDate.month {
                 if ((startCalendarModel?.date)! <= calendarModel.date && (finishCalendarModel?.date)! >= calendarModel.date) ||
                     ((startCalendarModel?.date)! >= calendarModel.date && (finishCalendarModel?.date)! <= calendarModel.date) {
 
@@ -211,13 +207,13 @@ extension CalendarCollectionView : UICollectionViewDataSource {
                         
                         if startCalendarModel?.date == calendarModel.date {
                             cell.updateCircleView(halfColor: whileSelectedColor, position: .Right)
-                        }else{
+                        } else {
                             cell.updateCircleView(halfColor: whileSelectedColor, position: .Left)
                         }
-                    }else{
+                    } else {
                         cell.updateCircleView(halfColor: whileSelectedColor, position: .Center)
                     }
-                }else {
+                } else {
 
                     cell.updateCircleView(halfColor: UIColor.clear, position: .Center)
                 }
@@ -230,8 +226,7 @@ extension CalendarCollectionView : UICollectionViewDataSource {
                 // 今日の日付より前の場合は、グレーアウト。
                 let minusDate = startCalendarModel?.date.added(day: -maximumSelectionPeriod)
                 
-                
-                if addDate! < calendarModel.date{
+                if addDate! < calendarModel.date {
                     cell.dayLabel?.textColor = cell.dayLabel?.textColor.withAlphaComponent(0.5)
                 }
                 
@@ -267,7 +262,7 @@ extension CalendarCollectionView : UICollectionViewDelegate {
             if calendarModel.weekType == WeekType.Weekday {
                 return
             }
-        }else if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays {
+        } else if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays {
             if calendarModel.weekType != WeekType.Weekday {
                 return
             }
@@ -281,8 +276,8 @@ extension CalendarCollectionView : UICollectionViewDelegate {
                 // 2つ選択されてたら初期化
                 startCalendarModel = nil
                 finishCalendarModel = nil
-                self.calenderModels.forEach(){
-                    $0.forEach(){
+                self.calenderModels.forEach {
+                    $0.forEach {
                         $0.isStartSelected = false
                         $0.isFinishSelected = false
                     }
@@ -297,15 +292,14 @@ extension CalendarCollectionView : UICollectionViewDelegate {
             startCalendarModel = calendarModel
             self.calendarDelegate?.didSelectStartDate(date: calendarModel.date)
 
-        }else if finishCalendarModel == nil {
-            
+        } else if finishCalendarModel == nil {
             
             if tapMode == Const.CalendarConst.TapType.SingleMode {
                 // すでに2つ選んでいた場合は初期化させる。
                 startCalendarModel = nil
                 finishCalendarModel = nil
-                self.calenderModels.forEach(){
-                    $0.forEach(){
+                self.calenderModels.forEach {
+                    $0.forEach {
                         $0.isStartSelected = false
                         $0.isFinishSelected = false
                     }
@@ -313,12 +307,12 @@ extension CalendarCollectionView : UICollectionViewDelegate {
                 calendarModel.isStartSelected = true
                 startCalendarModel = calendarModel
                 self.calendarDelegate?.didSelectStartDate(date: calendarModel.date)
-            } else if (tapMode == Const.CalendarConst.TapType.DoubleMode){
+            } else if (tapMode == Const.CalendarConst.TapType.DoubleMode) {
                 let addDate = startCalendarModel?.date.added(day: maximumSelectionPeriod)
                 let minusDate = startCalendarModel?.date.added(day: -maximumSelectionPeriod)
 
                 // Startと同じ日付の場合、Startより前の日付の場合、StartのmaximumSelectionPeriod足した日付より後の日付だった場合
-                if (startCalendarModel?.date)! == calendarModel.date || addDate! < calendarModel.date || minusDate! > calendarModel.date{
+                if (startCalendarModel?.date)! == calendarModel.date || addDate! < calendarModel.date || minusDate! > calendarModel.date {
                     return
                 }
                 
@@ -329,17 +323,17 @@ extension CalendarCollectionView : UICollectionViewDelegate {
                 if (startCalendarModel?.date)! > calendarModel.date {
                     // StartはFinishより未来の場合
                     self.calendarDelegate?.didSelectDoubleDate(startDate: calendarModel.date, endDate: (startCalendarModel?.date)!)
-                }else{
+                } else {
                     self.calendarDelegate?.didSelectDoubleDate(startDate: (startCalendarModel?.date)!, endDate: calendarModel.date)
                 }
             }
             
-        }else{
+        } else {
             // すでに2つ選んでいた場合は初期化させる。
             startCalendarModel = nil
             finishCalendarModel = nil
-            self.calenderModels.forEach(){
-                $0.forEach(){
+            self.calenderModels.forEach {
+                $0.forEach {
                     $0.isStartSelected = false
                     $0.isFinishSelected = false
                 }
@@ -364,9 +358,9 @@ extension CalendarCollectionView : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView:UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAt indexPath:IndexPath) -> CGSize {
         // 7等分
-        let width : CGFloat = collectionView.frame.size.width / CGFloat(7)
+        let width = collectionView.frame.size.width / CGFloat(7)
         // 横幅と同じ
-        let height : CGFloat = width
+        let height = width
         
         return CGSize(width: width, height: height)
     }
@@ -388,8 +382,7 @@ extension CalendarCollectionView : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section % 2 == 0 {
             return CGSize(width: self.frame.width, height: 50)
-        }
-        else{
+        } else {
             return CGSize(width: 0, height: 0)
         }
     }

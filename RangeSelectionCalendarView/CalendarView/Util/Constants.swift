@@ -25,15 +25,14 @@ struct Const {
         // どこまでカレンダー表示するか。
         enum DisplayType {
             // 半年先まで
-            case HalfYear
+            case halfYear
             // 1年後まで
-            case OneYear
+            case oneYear
             // カスタム(ヶ月)
-            case CustomMonth
+            case customMonth
             // カスタム(年)
-            case CustomYear
+            case customYear
         }
-        
         
         /// 活性させるタイプ
         ///
@@ -42,13 +41,12 @@ struct Const {
         /// - OnlyHoliday: 土日祝のみ
         enum DisplayWeekType {
             // 全て
-            case All
+            case all
             // 平日のみ
-            case OnlyWeekDays
+            case onlyWeekDays
             // 土日祝のみ
-            case OnlyHoliday
+            case obnlyHoliday
         }
-        
         
         /// Tapタイプ
         ///
@@ -56,9 +54,9 @@ struct Const {
         /// - DoubleMode: 2回タップモード
         /// - NotTapMode: タップなし
         enum TapType {
-            case SingleMode
-            case DoubleMode
-            case NotTapMode
+            case singleMode
+            case doubleMode
+            case notTapMode
         }
 
     }

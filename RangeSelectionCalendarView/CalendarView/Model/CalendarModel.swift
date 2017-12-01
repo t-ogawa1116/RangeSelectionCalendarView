@@ -8,16 +8,15 @@
 
 import UIKit
 
-
 /// 平日 / 土 / 日祝
 ///
 /// - Weekday: 平日
 /// - Satureday: 土曜
 /// - Holiday: 日曜 / 祝日
 enum WeekType {
-    case Weekday
-    case Satureday
-    case Holiday
+    case weekday
+    case satureday
+    case holiday
 }
 
 
@@ -31,12 +30,8 @@ class CalendarModel: NSObject {
     var month : Int = 1
     var day : Int = 1
     var weekType : WeekType = WeekType.Weekday
-    var _date : Date = Date()
     var date : Date {
-        get {
-            return _date
-        }
-        set {
+        didSet {
             self.year = newValue.year
             self.month = newValue.month
             self.day = newValue.day

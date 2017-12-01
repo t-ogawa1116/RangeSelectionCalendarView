@@ -8,9 +8,8 @@
 
 import UIKit
 
-
 /// CollectionViewからViewに返すDelegate
-protocol CalendarDelegate {
+protocol CalendarDelegate: class {
     
     /// 日付選択した際に返す
     ///
@@ -25,7 +24,6 @@ protocol CalendarDelegate {
     func didSelectDoubleDate(startDate : Date, endDate : Date)
 }
 
-
 /// ViewController側に返すDelegate
 @objc protocol CalrendarViewDelegate {
     
@@ -33,8 +31,6 @@ protocol CalendarDelegate {
     ///
     /// - Parameter date: 選択された日付
     func didSelectStartDate(date : Date)
-    
-    
     /// 2つの日付を選択された際に返す
     ///
     /// - Parameters:
@@ -42,4 +38,3 @@ protocol CalendarDelegate {
     ///   - endDate: 終了日
     func didSelectDoubleDate(startDate : Date, endDate : Date)
 }
-
