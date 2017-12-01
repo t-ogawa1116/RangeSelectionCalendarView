@@ -50,7 +50,7 @@ class CalendarModel: NSObject {
     ///
     /// - Parameter date: Date
     /// - Returns: WeekType
-    private func convertWeekType (date : Date) -> WeekType {
+    fileprivate func convertWeekType (date : Date) -> WeekType {
         let index = date.weekIndex
         if index >= 1 && index <= 5 {
             return WeekType.weekday

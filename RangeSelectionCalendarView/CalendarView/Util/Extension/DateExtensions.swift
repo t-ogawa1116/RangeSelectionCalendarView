@@ -18,7 +18,7 @@ extension Locale {
     static let japan = Locale(identifier: "ja_JP")
 }
 
-private let formatter: DateFormatter = {
+fileprivate let formatter: DateFormatter = {
     let formatter: DateFormatter = DateFormatter()
     formatter.timeZone = NSTimeZone.system
     formatter.locale = Locale(identifier: "en_US_POSIX")

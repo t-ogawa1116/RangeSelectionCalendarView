@@ -33,7 +33,7 @@ class DateCollectionViewCell: UICollectionViewCell {
         initLayout()
     }
     
-    private func initLayout() {
+    fileprivate func initLayout() {
         self.rightHalfView.isHidden = true
         self.leftHalfView.isHidden = true
     }

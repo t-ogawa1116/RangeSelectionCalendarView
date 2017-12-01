@@ -37,11 +37,11 @@ class CalendarCollectionView: UICollectionView {
     
     
     // *** Private Propaty *** //
-    private let dateManager = DateManager()
-    private let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    fileprivate let dateManager = DateManager()
+    fileprivate let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
-    private var startCalendarModel : CalendarModel? = nil
-    private var finishCalendarModel : CalendarModel? = nil
+    fileprivate var startCalendarModel : CalendarModel? = nil
+    fileprivate var finishCalendarModel : CalendarModel? = nil
     
     // *** Override *** //
     required init?(coder aDecoder: NSCoder) {
@@ -75,7 +75,7 @@ class CalendarCollectionView: UICollectionView {
     ///
     /// - Parameter row: IndexPath.row
     /// - Returns: UIColor
-    private func cellTextLabelColor(row : Int) -> UIColor {
+    fileprivate func cellTextLabelColor(row : Int) -> UIColor {
         if row % 7 == 0 {
             // 日曜日
             if displayWeekType == Const.CalendarConst.DisplayWeekType.all || displayWeekType == Const.CalendarConst.DisplayWeekType.onlyHoliday {

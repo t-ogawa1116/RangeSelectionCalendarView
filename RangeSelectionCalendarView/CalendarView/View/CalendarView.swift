@@ -128,7 +128,7 @@ class CalendarView: UIView, XibInstantiatable {
     // *** Private *** //
     
     /// Layout初期化
-    private func initLayout(){
+    fileprivate func initLayout(){
 //        let view = Bundle.main.loadNibNamed("CalendarView", owner: self, options: nil)?.first as! UIView
 //        view.frame = self.bounds
         
@@ -151,7 +151,7 @@ class CalendarView: UIView, XibInstantiatable {
     /// 日付計算
     ///
     /// - Returns: モデルの配列
-    private func getInitDates () -> Array<[CalendarModel]>{
+    fileprivate func getInitDates () -> Array<[CalendarModel]>{
         let startDate = Date()
         var selectedDate = Date()
         var sectionCalendarModels = Array<[CalendarModel]>()
