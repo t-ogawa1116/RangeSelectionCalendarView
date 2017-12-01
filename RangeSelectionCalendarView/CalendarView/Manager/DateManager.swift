@@ -26,7 +26,7 @@ class DateManager: NSObject {
         numberOfItems = dateRange!.count * date.daysPerWeek
         
         let count = numberOfCells.filter(){$0.key == date.month}.count
-        if count.isEmpty() {
+        if count == 0 {
             numberOfCells[date.month] = numberOfItems
         }
         
@@ -42,7 +42,6 @@ class DateManager: NSObject {
         let firstDateMonth = Calendar.current.date(from: components)!
         return firstDateMonth
     }
-    
     
     /// 表記する日にちを取得
     ///
@@ -68,11 +67,10 @@ class DateManager: NSObject {
         
         // 配列をメンバーに保持させる。
         let count = currentMonth.filter(){$0.key == date.month}.count
-        if count.isEmpty() {
+        if count == 0 {
             currentMonth[date.month] = currentMonthOfDates
         }
     }
-    
     
     /// セルに表示する文字を変更する
     ///

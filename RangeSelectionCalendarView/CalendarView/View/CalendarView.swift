@@ -97,16 +97,16 @@ class CalendarView: UIView, XibInstantiatable {
     }
     
     // Default
-    var displayType : Const.CalendarConst.DisplayType = Const.CalendarConst.DisplayType.HalfYear
+    var displayType : Const.CalendarConst.DisplayType = Const.CalendarConst.DisplayType.halfYear
     // Rootの背景色
     var viewBackgroundColor : UIColor = UIColor.white
     
     // 祝日データ
     var customHolidays = [Date]()
     // 曜日のどこを活性させるか
-    var displayWeekType = Const.CalendarConst.DisplayWeekType.All
+    var displayWeekType = Const.CalendarConst.DisplayWeekType.all
     // Tapモード
-    var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.DoubleMode
+    var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.doubleMode
  
     // Delegate
     var delegate : CalrendarViewDelegate?
@@ -156,10 +156,10 @@ class CalendarView: UIView, XibInstantiatable {
         var selectedDate = Date()
         var sectionCalendarModels = Array<[CalendarModel]>()
         
-        if displayType == Const.CalendarConst.DisplayType.HalfYear || displayType == Const.CalendarConst.DisplayType.CustomMonth {
+        if displayType == Const.CalendarConst.DisplayType.halfYear || displayType == Const.CalendarConst.DisplayType.customMonth {
             selectedDate = selectedDate.added(month: customMonthAgo)
         }
-        else if displayType == Const.CalendarConst.DisplayType.OneYear || displayType == Const.CalendarConst.DisplayType.CustomYear{
+        else if displayType == Const.CalendarConst.DisplayType.oneYear || displayType == Const.CalendarConst.DisplayType.customYear{
             selectedDate = selectedDate.added(year: customYearAgo)
         }
         

@@ -45,7 +45,7 @@ struct Const {
             // 平日のみ
             case onlyWeekDays
             // 土日祝のみ
-            case obnlyHoliday
+            case onlyHoliday
         }
         
         /// Tapタイプ
@@ -61,6 +61,3 @@ struct Const {
 
     }
 }
-
-
-

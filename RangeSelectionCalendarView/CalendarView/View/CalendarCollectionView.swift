@@ -14,7 +14,7 @@ class CalendarCollectionView: UICollectionView {
     // カレンダーモデルの配列
     public var calenderModels = Array<[CalendarModel]>()
     // どの日に的を絞って表示させるか
-    public var displayWeekType = Const.CalendarConst.DisplayWeekType.All
+    public var displayWeekType = Const.CalendarConst.DisplayWeekType.all
     // Delegate
     public var calendarDelegate : CalendarDelegate?
     // 祝日の配列
@@ -22,7 +22,7 @@ class CalendarCollectionView: UICollectionView {
     // 最大選択期間(日)
     public var maximumSelectionPeriod : Int = 31
     // 単一選択か複数選択か選択しないか
-    public var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.DoubleMode
+    public var tapMode : Const.CalendarConst.TapType = Const.CalendarConst.TapType.doubleMode
     // 各種色設定
     public var holidayColor : UIColor = Const.CalendarConst.HolidayColor
     public var weekdayColor : UIColor = Const.CalendarConst.WeekdayColor
@@ -78,7 +78,7 @@ class CalendarCollectionView: UICollectionView {
     private func cellTextLabelColor(row : Int) -> UIColor {
         if row % 7 == 0 {
             // 日曜日
-            if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyHoliday {
+            if displayWeekType == Const.CalendarConst.DisplayWeekType.all || displayWeekType == Const.CalendarConst.DisplayWeekType.onlyHoliday {
                 // 表示タイプが「全て」もしくは「祝日のみ」の場合
                 return holidayColor
             } else {
@@ -87,7 +87,7 @@ class CalendarCollectionView: UICollectionView {
             }
         } else if row % 7 == 6 {
             // 土曜日
-            if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyHoliday {
+            if displayWeekType == Const.CalendarConst.DisplayWeekType.all || displayWeekType == Const.CalendarConst.DisplayWeekType.onlyHoliday {
                 // 表示タイプが「全て」もしくは「祝日のみ」の場合
                 return saturedayColor
             } else {
@@ -95,7 +95,7 @@ class CalendarCollectionView: UICollectionView {
                 return saturedayColor.withAlphaComponent(0.5)
             }
         } else {
-            if displayWeekType == Const.CalendarConst.DisplayWeekType.All || displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays {
+            if displayWeekType == Const.CalendarConst.DisplayWeekType.all || displayWeekType == Const.CalendarConst.DisplayWeekType.onlyWeekDays {
                 return weekdayColor
             } else {
                 return weekdayColor.withAlphaComponent(0.5)
@@ -127,7 +127,7 @@ extension CalendarCollectionView : UICollectionViewDataSource {
         // 色は初期化
         cell.dayLabel?.backgroundColor = UIColor.clear
         cell.contentView.backgroundColor = UIColor.clear
-        cell.updateCircleView(halfColor: UIColor.clear, position: .Center)
+        cell.updateCircleView(halfColor: UIColor.clear, position: .center)
         cell.circleView?.backgroundColor = circleColor
         
         if circleImage != nil {
@@ -164,10 +164,10 @@ extension CalendarCollectionView : UICollectionViewDataSource {
             let count = customHoliday.filter {
                 $0.month == calendarModel.month && $0.day == calendarModel.day
             }.count
-            if count.isEmpty() {
+            if count > 0 {
                 cell.dayLabel?.textColor = holidayColor
-                calendarModel.weekType = WeekType.Holiday
-                if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1) {
+                calendarModel.weekType = WeekType.holiday
+                if displayWeekType == Const.CalendarConst.DisplayWeekType.onlyWeekDays && (cell.dayLabel?.textColor.components.alpha)! >= CGFloat(1) {
                     cell.dayLabel?.textColor = cell.dayLabel?.textColor.withAlphaComponent(0.5)
                 }
             }
@@ -206,21 +206,21 @@ extension CalendarCollectionView : UICollectionViewDataSource {
                         cell.circleView?.isHidden = false
                         
                         if startCalendarModel?.date == calendarModel.date {
-                            cell.updateCircleView(halfColor: whileSelectedColor, position: .Right)
+                            cell.updateCircleView(halfColor: whileSelectedColor, position: .right)
                         } else {
-                            cell.updateCircleView(halfColor: whileSelectedColor, position: .Left)
+                            cell.updateCircleView(halfColor: whileSelectedColor, position: .left)
                         }
                     } else {
-                        cell.updateCircleView(halfColor: whileSelectedColor, position: .Center)
+                        cell.updateCircleView(halfColor: whileSelectedColor, position: .center)
                     }
                 } else {
 
-                    cell.updateCircleView(halfColor: UIColor.clear, position: .Center)
+                    cell.updateCircleView(halfColor: UIColor.clear, position: .center)
                 }
             }
             
             //
-            if startCalendarModel != nil && tapMode == Const.CalendarConst.TapType.DoubleMode {
+            if startCalendarModel != nil && tapMode == Const.CalendarConst.TapType.doubleMode {
                 // maximumSelectionPeriod加算した日付より未来か
                 let addDate = startCalendarModel?.date.added(day: maximumSelectionPeriod)
                 // 今日の日付より前の場合は、グレーアウト。
@@ -258,19 +258,19 @@ extension CalendarCollectionView : UICollectionViewDelegate {
         
         let calendarModel = self.calenderModels[Int(floor(Double(indexPath.section / 2)))][indexPath.row]
         
-        if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyHoliday {
-            if calendarModel.weekType == WeekType.Weekday {
+        if displayWeekType == Const.CalendarConst.DisplayWeekType.onlyHoliday {
+            if calendarModel.weekType == WeekType.weekday {
                 return
             }
-        } else if displayWeekType == Const.CalendarConst.DisplayWeekType.OnlyWeekDays {
-            if calendarModel.weekType != WeekType.Weekday {
+        } else if displayWeekType == Const.CalendarConst.DisplayWeekType.onlyWeekDays {
+            if calendarModel.weekType != WeekType.weekday {
                 return
             }
-        } else if displayWeekType == Const.CalendarConst.DisplayWeekType.All {
+        } else if displayWeekType == Const.CalendarConst.DisplayWeekType.all {
             // 特になし
         }
         
-        if calendarModel.isPastDays || tapMode == Const.CalendarConst.TapType.NotTapMode {
+        if calendarModel.isPastDays || tapMode == Const.CalendarConst.TapType.notTapMode {
             // 過去の日もしくはタップイベントなしの場合は返す。
             if startCalendarModel != nil && finishCalendarModel != nil {
                 // 2つ選択されてたら初期化
@@ -294,7 +294,7 @@ extension CalendarCollectionView : UICollectionViewDelegate {
 
         } else if finishCalendarModel == nil {
             
-            if tapMode == Const.CalendarConst.TapType.SingleMode {
+            if tapMode == Const.CalendarConst.TapType.singleMode {
                 // すでに2つ選んでいた場合は初期化させる。
                 startCalendarModel = nil
                 finishCalendarModel = nil
@@ -307,7 +307,7 @@ extension CalendarCollectionView : UICollectionViewDelegate {
                 calendarModel.isStartSelected = true
                 startCalendarModel = calendarModel
                 self.calendarDelegate?.didSelectStartDate(date: calendarModel.date)
-            } else if (tapMode == Const.CalendarConst.TapType.DoubleMode) {
+            } else if (tapMode == Const.CalendarConst.TapType.doubleMode) {
                 let addDate = startCalendarModel?.date.added(day: maximumSelectionPeriod)
                 let minusDate = startCalendarModel?.date.added(day: -maximumSelectionPeriod)
 

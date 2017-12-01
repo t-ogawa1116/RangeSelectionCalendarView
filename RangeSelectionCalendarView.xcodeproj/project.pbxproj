@@ -32,8 +32,8 @@
 		597FA5351FD0EDED000690FD /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FA4F11FD0E755000690FD /* DateManager.swift */; };
 		597FA53B1FD0EE73000690FD /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597FA4E31FD0E70D000690FD /* CalendarView.xib */; };
 		597FA53C1FD0EE73000690FD /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597FA4E81FD0E729000690FD /* DateCollectionViewCell.xib */; };
-		597FA5431FD14375000690FD /* RangeSelectionCalendarView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; };
-		597FA5441FD14375000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		597FA54D1FD14B15000690FD /* RangeSelectionCalendarView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; };
+		597FA54E1FD14B15000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 			remoteGlobalIDString = 597FA4F51FD0E79C000690FD;
 			remoteInfo = Demo;
 		};
-		597FA5451FD14375000690FD /* PBXContainerItemProxy */ = {
+		597FA54F1FD14B15000690FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 597FA4A41FD0E4F8000690FD /* Project object */;
 			proxyType = 1;
@@ -68,13 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		597FA5471FD14375000690FD /* Embed Frameworks */ = {
+		597FA5511FD14B15000690FD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				597FA5441FD14375000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */,
+				597FA54E1FD14B15000690FD /* RangeSelectionCalendarView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,25 +83,25 @@
 
 /* Begin PBXFileReference section */
 		597FA4AD1FD0E4F9000690FD /* RangeSelectionCalendarView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RangeSelectionCalendarView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		597FA4B01FD0E4F9000690FD /* RangeSelectionCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RangeSelectionCalendarView.h; sourceTree = "<group>"; };
+		597FA4B01FD0E4F9000690FD /* RangeSelectionCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RangeSelectionCalendarView.h; path = RangeSelectionCalendarView/RangeSelectionCalendarView.h; sourceTree = SOURCE_ROOT; };
 		597FA4B11FD0E4F9000690FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		597FA4B61FD0E4F9000690FD /* RangeSelectionCalendarViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RangeSelectionCalendarViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		597FA4BB1FD0E4F9000690FD /* RangeSelectionCalendarViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSelectionCalendarViewTests.swift; sourceTree = "<group>"; };
 		597FA4BD1FD0E4F9000690FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		597FA4E31FD0E70D000690FD /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
-		597FA4E41FD0E71A000690FD /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
-		597FA4E51FD0E71A000690FD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		597FA4E61FD0E722000690FD /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
-		597FA4E71FD0E729000690FD /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
-		597FA4E81FD0E729000690FD /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
+		597FA4E31FD0E70D000690FD /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CalendarView.xib; path = RangeSelectionCalendarView/CalendarView/XIB/CalendarView.xib; sourceTree = SOURCE_ROOT; };
+		597FA4E41FD0E71A000690FD /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionView.swift; path = RangeSelectionCalendarView/CalendarView/View/CalendarCollectionView.swift; sourceTree = SOURCE_ROOT; };
+		597FA4E51FD0E71A000690FD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = RangeSelectionCalendarView/CalendarView/View/CalendarView.swift; sourceTree = SOURCE_ROOT; };
+		597FA4E61FD0E722000690FD /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCollectionViewLayout.swift; path = RangeSelectionCalendarView/CalendarView/View/CollectionViewLayout/CustomCollectionViewLayout.swift; sourceTree = SOURCE_ROOT; };
+		597FA4E71FD0E729000690FD /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = RangeSelectionCalendarView/CalendarView/View/CollectionViewCell/DateCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		597FA4E81FD0E729000690FD /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DateCollectionViewCell.xib; path = RangeSelectionCalendarView/CalendarView/View/CollectionViewCell/DateCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		597FA4E91FD0E730000690FD /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
-		597FA4EA1FD0E736000690FD /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		597FA4EB1FD0E73F000690FD /* CalenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderDelegate.swift; sourceTree = "<group>"; };
-		597FA4EC1FD0E73F000690FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		597FA4ED1FD0E749000690FD /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
-		597FA4EE1FD0E749000690FD /* XibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibInstantiatable.swift; sourceTree = "<group>"; };
-		597FA4EF1FD0E749000690FD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		597FA4F01FD0E74F000690FD /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		597FA4EA1FD0E736000690FD /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleView.swift; path = RangeSelectionCalendarView/CalendarView/View/CircleView/CircleView.swift; sourceTree = SOURCE_ROOT; };
+		597FA4EB1FD0E73F000690FD /* CalenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalenderDelegate.swift; path = RangeSelectionCalendarView/CalendarView/Util/CalenderDelegate.swift; sourceTree = SOURCE_ROOT; };
+		597FA4EC1FD0E73F000690FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = RangeSelectionCalendarView/CalendarView/Util/Constants.swift; sourceTree = SOURCE_ROOT; };
+		597FA4ED1FD0E749000690FD /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtension.swift; path = RangeSelectionCalendarView/CalendarView/Util/Extension/UICollectionViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		597FA4EE1FD0E749000690FD /* XibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XibInstantiatable.swift; path = RangeSelectionCalendarView/CalendarView/Util/Extension/XibInstantiatable.swift; sourceTree = SOURCE_ROOT; };
+		597FA4EF1FD0E749000690FD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = RangeSelectionCalendarView/CalendarView/Util/Extension/DateExtensions.swift; sourceTree = SOURCE_ROOT; };
+		597FA4F01FD0E74F000690FD /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarModel.swift; path = RangeSelectionCalendarView/CalendarView/Model/CalendarModel.swift; sourceTree = SOURCE_ROOT; };
 		597FA4F11FD0E755000690FD /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		597FA4F61FD0E79C000690FD /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		597FA4F81FD0E79C000690FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				597FA5431FD14375000690FD /* RangeSelectionCalendarView.framework in Frameworks */,
+				597FA54D1FD14B15000690FD /* RangeSelectionCalendarView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,9 +190,8 @@
 				597FA4B01FD0E4F9000690FD /* RangeSelectionCalendarView.h */,
 				597FA4B11FD0E4F9000690FD /* Info.plist */,
 			);
-			name = RangeSelectionCalendarView;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4BA1FD0E4F9000690FD /* RangeSelectionCalendarViewTests */ = {
 			isa = PBXGroup;
@@ -213,8 +212,8 @@
 				597FA4CC1FD0E58A000690FD /* Manager */,
 			);
 			name = CalendarView;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4CC1FD0E58A000690FD /* Manager */ = {
 			isa = PBXGroup;
@@ -222,8 +221,8 @@
 				597FA4F11FD0E755000690FD /* DateManager.swift */,
 			);
 			name = Manager;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/Manager;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/Manager;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4CD1FD0E58F000690FD /* Model */ = {
 			isa = PBXGroup;
@@ -231,8 +230,8 @@
 				597FA4F01FD0E74F000690FD /* CalendarModel.swift */,
 			);
 			name = Model;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/Model;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/Model;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4CE1FD0E59A000690FD /* Util */ = {
 			isa = PBXGroup;
@@ -242,8 +241,8 @@
 				597FA4CF1FD0E5A4000690FD /* Extension */,
 			);
 			name = Util;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/Util;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/Util;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4CF1FD0E5A4000690FD /* Extension */ = {
 			isa = PBXGroup;
@@ -253,8 +252,8 @@
 				597FA4EE1FD0E749000690FD /* XibInstantiatable.swift */,
 			);
 			name = Extension;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/Util/Extension;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/Util/Extension;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D01FD0E5AC000690FD /* View */ = {
 			isa = PBXGroup;
@@ -267,8 +266,8 @@
 				597FA4D11FD0E5B4000690FD /* CircleView */,
 			);
 			name = View;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/View;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/View;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D11FD0E5B4000690FD /* CircleView */ = {
 			isa = PBXGroup;
@@ -276,8 +275,8 @@
 				597FA4EA1FD0E736000690FD /* CircleView.swift */,
 			);
 			name = CircleView;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/View/CircleView;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/View/CircleView;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D21FD0E5BC000690FD /* CollectionReusableView */ = {
 			isa = PBXGroup;
@@ -285,8 +284,8 @@
 				597FA4E91FD0E730000690FD /* CollectionReusableView.swift */,
 			);
 			name = CollectionReusableView;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/View/CollectionReusableView;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/View/CollectionReusableView;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D31FD0E5C2000690FD /* CollectionViewCell */ = {
 			isa = PBXGroup;
@@ -295,8 +294,8 @@
 				597FA4E81FD0E729000690FD /* DateCollectionViewCell.xib */,
 			);
 			name = CollectionViewCell;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/View/CollectionViewCell;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/View/CollectionViewCell;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D41FD0E5CA000690FD /* CollectionViewLayout */ = {
 			isa = PBXGroup;
@@ -304,8 +303,8 @@
 				597FA4E61FD0E722000690FD /* CustomCollectionViewLayout.swift */,
 			);
 			name = CollectionViewLayout;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/View/CollectionViewLayout;
-			sourceTree = "<absolute>";
+			path = RangeSelectionCalendarView/CalendarView/View/CollectionViewLayout;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4D51FD0E5D2000690FD /* XIB */ = {
 			isa = PBXGroup;
@@ -313,8 +312,8 @@
 				597FA4E31FD0E70D000690FD /* CalendarView.xib */,
 			);
 			name = XIB;
-			path = /Users/takuya_ogawa/Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/XIB;
-			sourceTree = "<absolute>";
+			path = ../../Documents/03_Sample/RangeSelectionCalendarView/RangeSelectionCalendarView/RangeSelectionCalendarView/CalendarView/XIB;
+			sourceTree = SOURCE_ROOT;
 		};
 		597FA4F71FD0E79C000690FD /* Demo */ = {
 			isa = PBXGroup;
@@ -369,7 +368,6 @@
 				597FA4A91FD0E4F9000690FD /* Frameworks */,
 				597FA4AA1FD0E4F9000690FD /* Headers */,
 				597FA4AB1FD0E4F9000690FD /* Resources */,
-				597FA5421FD0F75D000690FD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -405,12 +403,12 @@
 				597FA4F21FD0E79C000690FD /* Sources */,
 				597FA4F31FD0E79C000690FD /* Frameworks */,
 				597FA4F41FD0E79C000690FD /* Resources */,
-				597FA5471FD14375000690FD /* Embed Frameworks */,
+				597FA5511FD14B15000690FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				597FA5461FD14375000690FD /* PBXTargetDependency */,
+				597FA5501FD14B15000690FD /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -553,22 +551,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		597FA5421FD0F75D000690FD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		597FA4A81FD0E4F9000690FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -641,10 +623,10 @@
 			target = 597FA4F51FD0E79C000690FD /* Demo */;
 			targetProxy = 597FA5151FD0E79D000690FD /* PBXContainerItemProxy */;
 		};
-		597FA5461FD14375000690FD /* PBXTargetDependency */ = {
+		597FA5501FD14B15000690FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 597FA4AC1FD0E4F9000690FD /* RangeSelectionCalendarView */;
-			targetProxy = 597FA5451FD14375000690FD /* PBXContainerItemProxy */;
+			targetProxy = 597FA54F1FD14B15000690FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -795,6 +777,7 @@
 				INFOPLIST_FILE = RangeSelectionCalendarView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.togawa.RangeSelectionCalendarView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

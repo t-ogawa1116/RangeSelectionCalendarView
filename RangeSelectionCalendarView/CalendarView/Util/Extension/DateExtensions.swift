@@ -106,7 +106,6 @@ extension Date {
         return calendar.date(from: comp)!
     }
     
-    
     /// 相対値指定
     ///
     /// - Parameters:

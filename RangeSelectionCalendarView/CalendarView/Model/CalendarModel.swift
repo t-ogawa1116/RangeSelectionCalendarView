@@ -29,14 +29,13 @@ class CalendarModel: NSObject {
     var year : Int = 1900
     var month : Int = 1
     var day : Int = 1
-    var weekType : WeekType = WeekType.Weekday
-    var date : Date {
+    var weekType : WeekType = WeekType.weekday
+    var date : Date = Date(){
         didSet {
-            self.year = newValue.year
-            self.month = newValue.month
-            self.day = newValue.day
-            self.weekType = convertWeekType(date: newValue)
-            self._date = newValue
+            self.year = date.year
+            self.month = date.month
+            self.day = date.day
+            self.weekType = convertWeekType(date: date)
         }
     }
     
@@ -54,11 +53,11 @@ class CalendarModel: NSObject {
     private func convertWeekType (date : Date) -> WeekType {
         let index = date.weekIndex
         if index >= 1 && index <= 5 {
-            return WeekType.Weekday
+            return WeekType.weekday
         }else if index == 0 {
-            return WeekType.Holiday
+            return WeekType.holiday
         }else {
-            return WeekType.Satureday
+            return WeekType.satureday
         }
     }
     
